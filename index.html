@@ -3,102 +3,263 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lingyun Li | Portfolio</title>
+  <title>Lingyun Li | Product Manager</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
-      color: #1a1a2e;
-      background: #f8f9fa;
+      color: #1e293b;
+      background: #f1f5f9;
     }
-    .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+    /* Header */
     header {
-      text-align: center;
-      padding: 4rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 3rem 0 2rem;
+      border-bottom: 3px solid #6366f1;
     }
-    header h1 { font-size: 2.5rem; color: #16213e; }
-    header p { font-size: 1.1rem; color: #555; margin-top: 0.5rem; }
-    section { margin: 3rem 0; }
+    header h1 { font-size: 2.5rem; color: #0f172a; letter-spacing: -0.02em; }
+    header .title { font-size: 1.1rem; color: #6366f1; font-weight: 600; margin-top: 0.25rem; }
+    header .contact { text-align: right; color: #475569; font-size: 0.9rem; }
+    header .contact a { color: #6366f1; text-decoration: none; }
+    header .contact a:hover { text-decoration: underline; }
+
+    /* Sections */
+    section { margin: 2.5rem 0; }
     h2 {
-      font-size: 1.5rem;
-      color: #16213e;
-      border-bottom: 2px solid #0f3460;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
-    .project {
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #cbd5e1;
+    }
+
+    /* Summary */
+    .summary { font-size: 1.05rem; color: #334155; line-height: 1.7; }
+
+    /* Experience */
+    .exp-item { margin-bottom: 1.75rem; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+    .exp-header h3 { font-size: 1.1rem; color: #0f172a; }
+    .exp-header .company { color: #6366f1; font-weight: 500; }
+    .exp-header .date { color: #64748b; font-size: 0.85rem; white-space: nowrap; }
+    .exp-item ul { list-style: none; padding-left: 0; }
+    .exp-item ul li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.35rem;
+      color: #475569;
+      font-size: 0.95rem;
+    }
+    .exp-item ul li::before {
+      content: '->';
+      position: absolute;
+      left: 0;
+      color: #6366f1;
+      font-weight: 600;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+    .edu-item h3 { font-size: 1rem; color: #0f172a; font-weight: 600; }
+    .edu-item .meta { color: #64748b; font-size: 0.9rem; }
+
+    /* Case Studies */
+    .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .case-card {
       background: #fff;
       border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      border: 1px solid #e2e8f0;
     }
-    .project h3 { margin-bottom: 0.5rem; }
-    .project p { color: #555; }
-    .project a {
+    .case-card h3 { font-size: 1rem; color: #0f172a; margin-bottom: 0.35rem; }
+    .case-card .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      background: #eef2ff;
+      color: #6366f1;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .case-card p { font-size: 0.9rem; color: #475569; }
+    .case-card a {
       display: inline-block;
       margin-top: 0.5rem;
-      color: #0f3460;
+      font-size: 0.9rem;
+      color: #6366f1;
       text-decoration: none;
       font-weight: 500;
     }
-    .project a:hover { text-decoration: underline; }
-    .skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .skill {
-      background: #0f3460;
-      color: #fff;
-      padding: 0.4rem 1rem;
+    .case-card a:hover { text-decoration: underline; }
+
+    /* Skills */
+    .skill-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .skill-pill {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      padding: 0.35rem 1rem;
       border-radius: 20px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
+
     footer {
       text-align: center;
-      padding: 2rem 0;
-      color: #777;
+      padding: 2rem 0 1rem;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 640px) {
+      header { flex-direction: column; gap: 0.75rem; }
+      header .contact { text-align: left; }
+      .case-grid { grid-template-columns: 1fr; }
+      .exp-header { flex-direction: column; }
+      .exp-header .date { margin-top: 0.15rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Lingyun Li</h1>
-      <p>Developer &amp; Creator</p>
+      <div>
+        <h1>Lingyun Li</h1>
+        <div class="title">Product Manager</div>
+      </div>
+      <div class="contact">
+        lingyun.li@email.com &bull; +1 (555) 123-4567<br />
+        <a href="https://linkedin.com/in/lingyunli">linkedin.com/in/lingyunli</a> &bull;
+        <a href="https://github.com/lingyunli1001">github.com/lingyunli1001</a>
+      </div>
     </header>
 
     <section>
       <h2>About Me</h2>
-      <p>Welcome to my portfolio! I'm a developer passionate about building things that matter. This site is currently under construction — more content coming soon.</p>
+      <p class="summary">
+        Product Manager with a background in social sciences and a deep curiosity about
+        how people interact with technology. I combine qualitative user research with
+        data-driven decision-making to build products that solve real problems.
+        Passionate about translating user needs into clear product requirements and
+        working cross-functionally to ship impact.
+      </p>
     </section>
 
     <section>
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Project One</h3>
-        <p>A description of your first project goes here.</p>
-        <a href="#">View on GitHub →</a>
+      <h2>Experience</h2>
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3>Associate Product Manager <span class="company">— Company Name</span></h3>
+          <span class="date">Jan 2025 – Present</span>
+        </div>
+        <ul>
+          <li>Defined product requirements and led execution for 3 feature launches, driving 15% improvement in user retention</li>
+          <li>Conducted 20+ user interviews and usability tests to identify pain points, informing the quarterly roadmap</li>
+          <li>Collaborated with engineering, design, and QA to ship on time across 2-week sprint cycles</li>
+          <li>Owned OKR definition and tracking for the growth pod, reporting outcomes to leadership weekly</li>
+        </ul>
       </div>
-      <div class="project">
-        <h3>Project Two</h3>
-        <p>A description of your second project goes here.</p>
-        <a href="#">View on GitHub →</a>
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3>Product Operations Analyst <span class="company">— Company Name</span></h3>
+          <span class="date">Jun 2023 – Dec 2024</span>
+        </div>
+        <ul>
+          <li>Analyzed user behavior data (Mixpanel) to surface drop-off points in the onboarding flow, leading to a 20% increase in activation</li>
+          <li>Managed the feedback loop between customer success and product teams, prioritizing 50+ feature requests quarterly</li>
+          <li>Designed and ran A/B tests on pricing page copy, resulting in 8% conversion lift</li>
+          <li>Created dashboards and automated reporting for key product KPIs using SQL and Looker</li>
+        </ul>
       </div>
     </section>
 
     <section>
-      <h2>Skills</h2>
-      <div class="skills">
-        <span class="skill">JavaScript</span>
-        <span class="skill">TypeScript</span>
-        <span class="skill">Python</span>
-        <span class="skill">React</span>
-        <span class="skill">Node.js</span>
-        <span class="skill">Git</span>
+      <h2>Education</h2>
+      <div class="edu-item">
+        <h3>University Name — B.A. in Sociology / Psychology / Political Science</h3>
+        <span class="meta">2019 – 2023</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Product Case Studies</h2>
+      <div class="case-grid">
+        <div class="case-card">
+          <span class="tag">Product Teardown</span>
+          <h3>Redesigning the Onboarding Flow</h3>
+          <p>Identified key drop-off points through user research and analytics. Proposed a simplified flow with measurable success metrics.</p>
+          <a href="#">Read case study &rarr;</a>
+        </div>
+        <div class="case-card">
+          <span class="tag">Mock PRD</span>
+          <h3>Feature: Smart Search</h3>
+          <p>Authored a full PRD for a search autocomplete feature, including user stories, acceptance criteria, success metrics, and success criteria.</p>
+          <a href="#">Read case study &rarr;</a>
+        </div>
+        <div class="case-card">
+          <span class="tag">Competitive Analysis</span>
+          <h3>Market Map: Note-Taking Apps</h3>
+          <p>Researched 8 competing products to identify gaps and opportunities. Presented findings and strategic recommendations.</p>
+          <a href="#">Read case study &rarr;</a>
+        </div>
+        <div class="case-card">
+          <span class="tag">A/B Test Report</span>
+          <h3>Pricing Page Optimization</h3>
+          <p>Designed and analyzed an A/B test on tiered pricing presentation, achieving 8% conversion improvement at 95% significance.</p>
+          <a href="#">Read case study &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills &amp; Tools</h2>
+      <div class="skill-grid">
+        <span class="skill-pill">User Research</span>
+        <span class="skill-pill">Usability Testing</span>
+        <span class="skill-pill">A/B Testing</span>
+        <span class="skill-pill">Data Analysis</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">Mixpanel / Amplitude</span>
+        <span class="skill-pill">JIRA / Linear</span>
+        <span class="skill-pill">Figma (wireframing)</span>
+        <span class="skill-pill">Notion / Confluence</span>
+        <span class="skill-pill">Roadmapping</span>
+        <span class="skill-pill">OKR / KPI Definition</span>
+        <span class="skill-pill">Stakeholder Management</span>
+        <span class="skill-pill">Agile / Scrum</span>
+        <span class="skill-pill">Product Requirements (PRD)</span>
       </div>
     </section>
 
     <footer>
-      <p>&copy; 2026 Lingyun Li</p>
+      &copy; 2026 Lingyun Li &bull; Built for product management
     </footer>
   </div>
 </body>
